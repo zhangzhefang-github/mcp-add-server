@@ -2,6 +2,10 @@
 
 A minimal Model Context Protocol (MCP) server that provides a simple `add(a, b)` tool. This project serves as a basic example of an MCP server implementation.
 
+<a href="https://glama.ai/mcp/servers/@zhangzhefang-github/mcp-add-server">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@zhangzhefang-github/mcp-add-server/badge" alt="Add Server MCP server" />
+</a>
+
 ## Features
 
 *   Implements a Model Context Protocol compliant server.

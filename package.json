@@ -1,23 +1,44 @@
 {
   "name": "mcp-add-server",
   "version": "1.0.0",
+  "description": "A minimal MCP server with add(a, b) tool.",
+  "author": "zhangzhefang-github",
+  "license": "MIT",
   "main": "src/server.js",
+  "bin": {
+    "mcp-add-server": "./bin.js"
+  },
+  "files": [
+    "bin.js",
+    "src/server.js",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "start": "./bin.js",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --detectOpenHandles --forceExit"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "description": "A minimal MCP server with add(a, b) tool.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "tool",
+    "add",
+    "server",
+    "cli"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhangzhefang-github/mcp-add-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zhangzhefang-github/mcp-add-server/issues"
+  },
+  "homepage": "https://github.com/zhangzhefang-github/mcp-add-server#readme",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.11.0",
     "zod": "^3.24.4"
   },
   "type": "module",
-  "bin": {
-    "mcp-add-server": "./bin.js"
-  },
   "devDependencies": {
     "jest": "^29.7.0"
   }

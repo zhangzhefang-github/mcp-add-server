@@ -1,0 +1,23 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Common Git Commands
+
+This is a quick reference for some common Git commands.
+
+*   `git init`: Initializes a new Git repository in the current directory.
+*   `git add <file>`: Adds a file to the staging area.
+*   `git add .`: Adds all new and modified files in the current directory and subdirectories to the staging area.
+*   `git commit -m "commit message"`: Records changes to the repository with a descriptive message.
+*   `git status`: Shows the status of changes as untracked, modified, or staged.
+*   `git log`: Shows the commit history.
+*   `git branch <branch-name>`: Creates a new branch.
+*   `git checkout <branch-name>`: Switches to the specified branch.
+*   `git merge <branch-name>`: Merges the specified branch into the current branch.
+*   `git pull`: Fetches changes from the remote repository and merges them into the current branch.
+*   `git push`: Pushes committed changes to a remote repository.
+*   `git reset --soft HEAD~1`: Undoes the last commit but keeps the changes in the staging area.
+*   `git reset --hard HEAD~1`: Undoes the last commit and discards the changes in the working directory and staging area. **Use with caution.**
+*   `git remote add origin <repository-url>`: Connects your local repository to a remote server.

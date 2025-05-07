@@ -9,12 +9,12 @@ A minimal Model Context Protocol (MCP) server that provides a simple `add(a, b)`
 
 ## 实际运行效果 (Showcase)
 
-下图展示了 `mcp-add-server` 在 `mcp.so` 服务发现平台上的配置信息，以及一个兼容 MCP 的聊天机器人 (例如 DeepSeek Chat) 成功调用本服务器的 `add` 工具来执行加法运算的场景：
+下图展示了 `mcp-add-server` 在 `mcp.so` 服务发现平台上的配置信息，以及一个兼容 MCP 的聊天机器人 (例如 Cherry Studio) 成功调用本服务器的 `add` 工具来执行加法运算的场景：
 
 [![MCP Add Server in Action](./images/mcp-add-server-showcase.png)](./images/mcp-add-server-showcase.png)
 
 *   **左侧**: `mcp-add-server` 在 `mcp.so` 上的信息，展示了其概述和启动配置。
-*   **右侧**: 一个 MCP 客户端 (聊天机器人) 接收到用户关于加法的请求后，调用了 `@zhefang/mcp-add-server` 提供的 `add` 工具，并正确返回了计算结果。
+*   **右侧**: 一个 MCP 客户端 (例如 Cherry Studio 这样的聊天机器人) 接收到用户关于加法的请求后，调用了 `@zhefang/mcp-add-server` 提供的 `add` 工具，并正确返回了计算结果。
 
 这清晰地演示了遵循 Model Context Protocol 的服务器和客户端之间如何无缝集成和协作。
 

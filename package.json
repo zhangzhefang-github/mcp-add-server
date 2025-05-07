@@ -4,7 +4,7 @@
   "main": "src/server.js",
   "scripts": {
     "start": "./bin.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --detectOpenHandles --forceExit"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +17,8 @@
   "type": "module",
   "bin": {
     "mcp-add-server": "./bin.js"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }

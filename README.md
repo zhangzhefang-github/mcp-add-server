@@ -26,19 +26,50 @@ A minimal Model Context Protocol (MCP) server that provides a simple `add(a, b)`
 
 ## Usage
 
-To start the server, run:
+There are several ways to run the `mcp-add-server`:
+
+**1. Using `npx` (Recommended for most users):**
+
+If you have Node.js and npm installed, you can run the server directly without cloning or installing globally:
+
+```bash
+npx mcp-add-server
+```
+This command will download the latest version of `mcp-add-server` (if not already cached) and execute it.
+
+**2. Running from a cloned repository:**
+
+After cloning the repository and installing dependencies (see [Installation](#installation)):
 
 ```bash
 npm start
 ```
-*(Note: You will need to add a `start` script to your `package.json`. See the suggestion below.)*
+This uses the `start` script defined in `package.json`.
 
-Alternatively, if you have linked the binary (e.g., after `npm link` or global installation):
+**3. Global installation (for frequent use or development):**
+
+You can install the package globally:
+```bash
+npm install -g .  # From the cloned repository directory
+# or once published to npm:
+# npm install -g mcp-add-server
+```
+Then you can run it from any directory:
 ```bash
 mcp-add-server
 ```
 
-Once the server is running, it will be available to MCP clients.
+**4. Local linking for development:**
+In the project's root directory, run `npm link`. This will make the `mcp-add-server` command available globally, pointing to your local project files.
+```bash
+# In project directory
+npm link
+
+# Then, in any directory:
+mcp-add-server
+```
+
+Once the server is running (regardless of the method used), it will be available to MCP clients.
 
 ### Example Tool Call (Conceptual)
 

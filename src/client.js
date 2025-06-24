@@ -13,7 +13,7 @@ const client = new Client({
  */
 const transport = new StdioClientTransport({
   command: "npx",
-  args: ["mcp-add-server"]
+  args: ["@zhefang/mcp-add-server"]
 });
 
 try {

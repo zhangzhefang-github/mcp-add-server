@@ -6,10 +6,13 @@ A minimal Model Context Protocol (MCP) server that provides a simple `add(a, b)`
   <img width="380" height="200" src="https://glama.ai/mcp/servers/@zhangzhefang-github/mcp-add-server/badge" alt="Add Server MCP server" />
 </a>
 
+[![npm version](https://badge.fury.io/js/@zhefang%2Fmcp-add-server.svg)](https://badge.fury.io/js/@zhefang%2Fmcp-add-server)
+
 ## Features
 
 *   Implements a Model Context Protocol compliant server.
 *   Provides a single tool: `add(a, b)` which returns the sum of two numbers.
+*   Available on npm for easy installation and use.
 
 ## 实际运行效果 (Showcase)
 
@@ -29,14 +32,41 @@ A minimal Model Context Protocol (MCP) server that provides a simple `add(a, b)`
 
 ## Installation
 
+### Quick Start (Recommended)
+
+The easiest way to use this MCP server is with `npx`:
+
+```bash
+npx @zhefang/mcp-add-server
+```
+
+### Global Installation
+
+For frequent use, install globally:
+
+```bash
+npm install -g @zhefang/mcp-add-server
+```
+
+Then run:
+```bash
+mcp-add-server
+```
+
+### Development Setup
+
 1.  Clone the repository:
     ```bash
-    git clone <你的仓库URL> # 当你推送到 GitHub 后，替换这里的 URL
+    git clone https://github.com/zhangzhefang-github/mcp-add-server.git
     cd mcp-add-server
     ```
 2.  Install dependencies:
     ```bash
     npm install
+    ```
+3.  Run locally:
+    ```bash
+    npm start
     ```
 
 ## Usage
@@ -45,50 +75,58 @@ There are several ways to run the `mcp-add-server`:
 
 **1. Using `npx` (Recommended for most users):**
 
-If you have Node.js and npm installed, you can run the server directly without cloning or installing globally:
+```bash
+npx @zhefang/mcp-add-server
+```
+This command will download the latest version of `@zhefang/mcp-add-server` and execute it.
+
+**2. Global installation (for frequent use):**
 
 ```bash
-npx mcp-add-server
+npm install -g @zhefang/mcp-add-server
+mcp-add-server
 ```
-This command will download the latest version of `mcp-add-server` (if not already cached) and execute it.
 
-**2. Running from a cloned repository:**
+**3. Running from a cloned repository:**
 
-After cloning the repository and installing dependencies (see [Installation](#installation)):
+After cloning the repository and installing dependencies:
 
 ```bash
 npm start
 ```
-This uses the `start` script defined in `package.json`.
-
-**3. Global installation (for frequent use or development):**
-
-You can install the package globally:
-```bash
-npm install -g .  # From the cloned repository directory
-# or once published to npm:
-# npm install -g mcp-add-server
-```
-Then you can run it from any directory:
-```bash
-mcp-add-server
-```
 
 **4. Local linking for development:**
-In the project's root directory, run `npm link`. This will make the `mcp-add-server` command available globally, pointing to your local project files.
+In the project's root directory:
 ```bash
-# In project directory
 npm link
-
-# Then, in any directory:
 mcp-add-server
 ```
 
-Once the server is running (regardless of the method used), it will be available to MCP clients.
+Once the server is running, it will be available to MCP clients via stdio transport.
 
-### Example Tool Call (Conceptual)
+## Client Example
 
-An MCP client could call the `add` tool like this (specifics depend on the client implementation):
+The `src/client.js` file demonstrates how to connect to the server:
+
+```javascript
+import { Client } from "@modelcontextprotocol/sdk/client/index.js";
+import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
+
+const transport = new StdioClientTransport({
+  command: "npx",
+  args: ["@zhefang/mcp-add-server"]
+});
+
+// Connect and use the add tool
+await client.connect(transport);
+const result = await client.callTool({
+  name: "add",
+  arguments: { a: 10, b: 5 }
+});
+console.log("计算结果：", result);
+```
+
+### Example Tool Call (JSON)
 
 ```json
 {
@@ -100,10 +138,15 @@ An MCP client could call the `add` tool like this (specifics depend on the clien
 }
 ```
 
-The server would respond with:
+The server responds with:
 ```json
 {
-  "result": 8
+  "content": [
+    {
+      "type": "text", 
+      "text": "结果是：8"
+    }
+  ]
 }
 ```
 

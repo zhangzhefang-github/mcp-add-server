@@ -1,6 +1,6 @@
 {
   "name": "@zhefang/mcp-add-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A minimal MCP server with add(a, b) tool.",
   "author": "zhangzhefang-github",
   "license": "MIT",
